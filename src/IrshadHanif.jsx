@@ -15,6 +15,7 @@ import {
   Linkedin,
   Video
 } from 'lucide-react';
+import baba_webpage from './baba_webpage.jpg';
 
 // --- Components ---
 
