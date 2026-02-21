@@ -205,7 +205,7 @@ const Profile = () => (
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-transparent to-transparent opacity-60"></div>
           {/* Placeholder for real image */}
           <img 
-            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1632&q=80" 
+            src="src/baba webpage.jpg" 
             alt="Supreme Court Meeting" 
             className="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
           />
