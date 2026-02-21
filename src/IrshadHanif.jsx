@@ -627,31 +627,5 @@ const App = () => {
     </div>
   );
 };
-   
-const IrshadHanif = () => {
-  const [activeSection, setActiveSection] = React.useState('hero');  // Adjust if you have useState imported
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
-  const scrollToSection = (section) => {
-    document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
-    setActiveSection(section);
-  };
-
-  return (
-    <>
-      <Navigation 
-        activeSection={activeSection} 
-        scrollToSection={scrollToSection} 
-        mobileMenuOpen={mobileMenuOpen} 
-        setMobileMenuOpen={setMobileMenuOpen} 
-      />
-      <Hero />
-      <Profile />
-      <Expertise />
-      {/* Add other sections like Judgments, GlobalPresence, ContactForm here if defined */}
-      {/* Example: <Judgments /> */}
-    </>
-  );
-};
-
-export default IrshadHanif;  // Export the wrapper as default
+export default App;
