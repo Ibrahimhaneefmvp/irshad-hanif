@@ -318,22 +318,20 @@ const Expertise = () => {
               <Scale size={150} text="#fff" />
             </div>
             
-            <key key={activeTab}> {/* Force re-render for animation */}
-              <div className="animate-fade-in-up">
-                <h3 className="text-3xl font-serif text-[#c5a059] mb-6">{areas[activeTab].title}</h3>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed font-light">
-                  {areas[activeTab].desc}
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {areas[activeTab].details.map((detail, i) => (
-                    <div key={i} className="flex items-center space-x-3 text-sm text-gray-400 border border-white/10 p-3 rounded bg-white/5">
-                      <ChevronRight size={14} className="text-[#c5a059]" />
-                      <span>{detail}</span>
-                    </div>
-                  ))}
-                </div>
+            <div key={activeTab} className="animate-fade-in-up"> {/* Replaced <key> with <div> */}
+              <h3 className="text-3xl font-serif text-[#c5a059] mb-6">{areas[activeTab].title}</h3>
+              <p className="text-xl text-gray-300 mb-8 leading-relaxed font-light">
+                {areas[activeTab].desc}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {areas[activeTab].details.map((detail, i) => (
+                  <div key={i} className="flex items-center space-x-3 text-sm text-gray-400 border border-white/10 p-3 rounded bg-white/5">
+                    <ChevronRight size={14} className="text-[#c5a059]" />
+                    <span>{detail}</span>
+                  </div>
+                ))}
               </div>
-            </key>
+            </div>
           </div>
         </div>
       </div>
@@ -629,6 +627,7 @@ const App = () => {
     </div>
   );
 };
+   
 const IrshadHanif = () => {
   const [activeSection, setActiveSection] = React.useState('hero');  // Adjust if you have useState imported
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
