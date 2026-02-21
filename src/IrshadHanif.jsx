@@ -572,67 +572,9 @@ const Footer = () => (
 );
 
 // --- Main App Component ---
-
-const App = () => {
-  const [activeSection, setActiveSection] = useState('hero');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Smooth scroll handler
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setActiveSection(sectionId);
-  };
-
-  // Scroll spy to update active section in nav
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['hero', 'profile', 'expertise', 'judgments', 'global', 'contact'];
-      const scrollPosition = window.scrollY + 200;
-
-      sections.forEach(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-          }
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <div className="bg-[#0a0f1c] min-h-screen text-white font-sans selection:bg-[#c5a059] selection:text-white overflow-x-hidden">
-      <Navigation 
-        activeSection={activeSection} 
-        scrollToSection={scrollToSection}
-        mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen}
-      />
-      
-      <main>
-        <Hero />
-        <Profile />
-        <Expertise />
-        <Judgments />
-        <GlobalDesk />
-        <Contact />
-      </main>
-
-      <Footer />
-    </div>
-  );
-};
-
-const App = () => {
-  const [activeSection, setActiveSection] = useState('hero');  // Example state for navigation
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const IrshadHanif = () => {
+  const [activeSection, setActiveSection] = React.useState('hero');  // Adjust if you have useState imported
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   const scrollToSection = (section) => {
     document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
@@ -649,10 +591,11 @@ const App = () => {
       />
       <Hero />
       <Profile />
-      {/* Add other sections like Expertise, Judgments, Global, Contact here */}
-      {/* Example: <Expertise /> */}
+      <Expertise />
+      {/* Add other sections like Judgments, GlobalPresence, ContactForm here if defined */}
+      {/* Example: <Judgments /> */}
     </>
   );
 };
 
-export default App;  // Crucial: Export as default
+export default IrshadHanif;  // Export the wrapper as defaultFIrshad
