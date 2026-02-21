@@ -575,6 +575,20 @@ const Footer = () => (
 const App = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  //Pop-up for solicitation
+  
+  const [showDisclaimer, setShowDisclaimer] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!localStorage.getItem('hasSeenDisclaimer')) {
+      setShowDisclaimer(true);
+    }
+  }, []);
+
+  const closeDisclaimer = () => {
+    setShowDisclaimer(false);
+    localStorage.setItem('hasSeenDisclaimer', 'true');
+  };
 
   // Smooth scroll handler
   const scrollToSection = (sectionId) => {
@@ -622,6 +636,24 @@ const App = () => {
         <Judgments />
         <GlobalDesk />
         <Contact />
+      {/* Disclaimer Modal - shows only on first visit */}
+      {showDisclaimer && (
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] flex items-center justify-center p-6">
+          <div className="bg-[#0a0f1c] border border-[#c5a059]/40 rounded-3xl max-w-md w-full p-10 text-center">
+            <div className="text-6xl mb-6">⚖️</div>
+            <h3 className="text-2xl font-semibold text-white mb-4">Important Disclaimer</h3>
+            <p className="text-gray-300 leading-relaxed text-[16px]">
+              Disclaimer: This website is for informational purposes only and does not constitute legal advice or solicitation under the rules of the Bar Council of India.
+            </p>
+            <button 
+              onClick={closeDisclaimer}
+              className="mt-8 w-full py-4 bg-[#c5a059] hover:bg-amber-400 text-black font-semibold rounded-2xl transition-all active:scale-95"
+            >
+              I Understand
+            </button>
+          </div>
+        </div>
+      )}
       </main>
 
       <Footer />
