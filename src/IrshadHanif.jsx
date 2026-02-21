@@ -630,4 +630,29 @@ const App = () => {
   );
 };
 
-export default App;
+const App = () => {
+  const [activeSection, setActiveSection] = useState('hero');  // Example state for navigation
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const scrollToSection = (section) => {
+    document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+    setActiveSection(section);
+  };
+
+  return (
+    <>
+      <Navigation 
+        activeSection={activeSection} 
+        scrollToSection={scrollToSection} 
+        mobileMenuOpen={mobileMenuOpen} 
+        setMobileMenuOpen={setMobileMenuOpen} 
+      />
+      <Hero />
+      <Profile />
+      {/* Add other sections like Expertise, Judgments, Global, Contact here */}
+      {/* Example: <Expertise /> */}
+    </>
+  );
+};
+
+export default App;  // Crucial: Export as default
